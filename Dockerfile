@@ -14,9 +14,10 @@ COPY  WSPro/* /WSApp/WSPro/
 
 # make Django migrations
 RUN mkdir ./WSApp/db
+RUN chmod 777 ./WSApp/runserver.sh
 
 # setup server 
-RUN ./WSApp/runserver.sh
+CMD ./WSApp/runserver.sh
 
 # setup enviroment
 ENV PYTHONUNBUFFERED=1
