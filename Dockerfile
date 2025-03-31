@@ -13,7 +13,6 @@ COPY  WeatherStation/* /WSApp/WeatherStation/
 COPY  WSPro/* /WSApp/WSPro/
 
 # make Django migrations
-RUN mkdir ./WSApp/db
 RUN chmod 777 ./WSApp/runserver.sh
 
 # setup server 
