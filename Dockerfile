@@ -16,7 +16,8 @@ COPY  WSPro/* /WSApp/WSPro/
 RUN chmod 777 ./WSApp/runserver.sh
 
 # setup server
-RUN runmodwsgi --setup-only --port=80 --user www-data --group www-data --server-root=/etc/mod_wsgi-express-80
+RUN python3 ./WSApp/manage.py runmodwsgi --setup-only --port=80 --user www-data --group www-data --server-root=/etc/mod_wsgi-express-80
+
 # setup enviroment
 ENV PYTHONUNBUFFERED=1
 
