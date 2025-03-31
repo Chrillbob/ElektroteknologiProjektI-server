@@ -2,9 +2,10 @@
 FROM ubuntu:22.04
 
 # install app dependencies
-RUN apt-get update && apt-get install -y python3 python3-pip apache2 apache2-dev
+RUN apt-get update && apt-get install -y python3 python3-pip apache2 apache2-dev 
 RUN pip install django==3.2.*
 RUN pip install mod-wsgi
+RUN pip install mysqlclient
 
 # install app
 COPY  ./* /WSApp/
