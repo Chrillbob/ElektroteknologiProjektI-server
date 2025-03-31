@@ -12,15 +12,14 @@ COPY  ./* /WSApp/
 COPY  WeatherStation/* /WSApp/WeatherStation/
 COPY  WSPro/* /WSApp/WSPro/
 
-# make Django migrations
+# make startup script executable
 RUN chmod 777 ./WSApp/runserver.sh
 
-# setup server 
-#CMD ./WSApp/runserver.sh
-
+# setup server
+RUN runmodwsgi --setup-only --port=80 --user www-data --group www-data --server-root=/etc/mod_wsgi-express-80
 # setup enviroment
 ENV PYTHONUNBUFFERED=1
 
 # final configuration
 EXPOSE 80
-CMD ["./WSApp/runserver.sh"]
+CMD ["/WSApp/runserver.sh"]
