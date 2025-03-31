@@ -17,7 +17,6 @@ RUN mkdir ./WSApp/db
 RUN chmod 777 ./WSApp/runserver.sh
 
 # setup server 
-RUN python3 ./WSApp/manage.py runmodwsgi --setup-only --port=80 --user www-data --group www-data --server-root=/etc/mod_wsgi-express-80
 #CMD ./WSApp/runserver.sh
 
 # setup enviroment
