@@ -14,11 +14,9 @@ COPY  WSPro/* /WSApp/WSPro/
 
 # make Django migrations
 RUN mkdir ./WSApp/db
-RUN python3 ./WSApp/manage.py makemigrations WeatherStation
-RUN python3 ./WSApp/manage.py migrate
 
 # setup server 
-RUN python3 ./WSApp/manage.py runmodwsgi --setup-only --port=80 --user www-data --group www-data --server-root=/etc/mod_wsgi-express-80
+RUN runserver.sh
 
 # setup enviroment
 ENV PYTHONUNBUFFERED=1
