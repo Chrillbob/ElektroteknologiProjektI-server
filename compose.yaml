@@ -16,5 +16,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:
-      - config:/etc/mysql/conf.d
-      - db:/var/lib/mysql
+      - ./config:/etc/mysql/conf.d
+      - ./db:/var/lib/mysql
