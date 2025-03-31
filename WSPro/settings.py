@@ -78,9 +78,12 @@ WSGI_APPLICATION = 'WSPro.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db/db.sqlite3',
+    'default' :{
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS':{
+            'read_default_file': BASE_DIR / 'config/mysql.cnf',
+        }
+            
     }
 }
 

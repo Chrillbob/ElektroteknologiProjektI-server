@@ -1,5 +1,5 @@
 services:
-  server:
+  frontend:
     build: .
     ports: 
       - "80:80"
@@ -10,3 +10,11 @@ services:
         - action: sync
           path: .
           target: /WSApp
+
+  backend:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - config:/etc/mysql/conf.d
+      - db:/var/lib/mysql
