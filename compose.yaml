@@ -4,7 +4,7 @@ services:
     ports: 
       - "80:80"
     depends_on:
-      backend:
+      db:
         condition: service_started
         restart: true
     develop:
