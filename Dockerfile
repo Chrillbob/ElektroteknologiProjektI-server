@@ -16,7 +16,7 @@ COPY  WSPro/* /WSApp/WSPro/
 RUN mkdir ./WSApp/db
 
 # setup server 
-RUN runserver.sh
+RUN ./WSApp/runserver.sh
 
 # setup enviroment
 ENV PYTHONUNBUFFERED=1
