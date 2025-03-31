@@ -13,7 +13,7 @@ services:
           path: .
           target: /WSApp
 
-  backend:
+  db:
     image: mysql
     ports:
       - "3306:3306"

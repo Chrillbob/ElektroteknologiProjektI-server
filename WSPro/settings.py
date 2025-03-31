@@ -82,8 +82,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS':{
             'read_default_file': str(BASE_DIR / 'config/mysql.cnf'),
-        }
-            
+        },
+        'HOST': 'db',
+        'PORT': '3306'
     }
 }
 
