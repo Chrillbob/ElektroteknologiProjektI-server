@@ -2,7 +2,7 @@
 FROM ubuntu:22.04
 
 # install app dependencies
-RUN apt-get update && apt-get install -y python3 python3-pip apache2 apache2-dev 
+RUN apt-get update && apt-get install -y python3 python3-dev python3-pip apache2 apache2-dev build-essential pkg-config default-libmysqlclient-dev
 RUN pip install django==3.2.*
 RUN pip install mod-wsgi
 RUN pip install mysqlclient
