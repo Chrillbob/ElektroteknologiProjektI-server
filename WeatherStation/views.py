@@ -13,7 +13,6 @@ def index(request):
         data = request.POST
         print(request.body)
         for deserialized_object in serializers.deserialize("json", request.body):
-            deserialized_object.object
             deserialized_object.save()
         response = HttpResponse()
         response.status_code = 200

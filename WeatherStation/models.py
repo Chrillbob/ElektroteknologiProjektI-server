@@ -8,11 +8,11 @@ class Measurements(models.Model):
     temp = models.FloatField("temperature measurement")
     humidity = models.FloatField("humidity measurement")
     wind_speed = models.FloatField("wind speed")
-    wind_dir = models.CharField("wind direction", max_length=2)
+    wind_dir = models.FloatField("wind direction")
     pressure = models.FloatField("air pressure")
-    smoke = models.IntegerField("smoke level")
+    smoke = models.FloatField("smoke level")
     ambient = models.FloatField("ambient light level")
-    meas_time = models.DateTimeField("measurement time")
+    meas_time = models.DateTimeField("measurement time", auto_now_add=True)
 
     def __str__(self):
         return "Measurement at " + self.meas_time.isoformat()
