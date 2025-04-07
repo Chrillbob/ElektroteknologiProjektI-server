@@ -80,6 +80,9 @@ WSGI_APPLICATION = 'WSPro.wsgi.application'
 DATABASES = {
     'default' :{
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mysql',
+        'USER': 'www-data',
+        'PASSWORD': 'password',
         'OPTIONS':{
             'read_default_file': str(BASE_DIR / 'config/mysql.cnf'),
         },

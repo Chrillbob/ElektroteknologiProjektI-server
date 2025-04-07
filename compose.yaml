@@ -19,6 +19,9 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: www-data
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: mysql
     volumes:
       - ./config:/etc/mysql/conf.d
       - ./db:/var/lib/mysql
