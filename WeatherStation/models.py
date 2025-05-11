@@ -12,7 +12,7 @@ class Measurements(models.Model):
     pressure = models.FloatField("air pressure")
     smoke = models.FloatField("smoke level")
     ambient = models.FloatField("ambient light level")
-    meas_time = models.DateTimeField("measurement time", default=timezone.localtime(timezone=timezone.get_default_timezone()))
+    meas_time = models.DateTimeField("measurement time", auto_now_add=True)
 
     def __str__(self):
         return "Measurement at " + self.meas_time.isoformat()
