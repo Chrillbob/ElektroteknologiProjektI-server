@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.core import serializers
 
 from .models import Measurements
 
 import json
 import datetime
 
+class MeasurementsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Measurements
+        fields = ['temp', 'humidity', 'wind_speed', 'wind_dir', 'pressure', 'smoke', 'ambient']
 
 # Create your views here.
 def index(request):
@@ -15,7 +20,10 @@ def index(request):
             
             for entry in body:
                 fields = entry.get("fields", {})
+                fields.pop("meas_time", None)
                 # Create new Measurements object - meas_time is handled by auto_now_add
+                print(fields)
+                
                 Measurements.objects.create(**fields)
             
             return JsonResponse({"status": "ok"}, status=200)
