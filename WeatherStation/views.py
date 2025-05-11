@@ -4,19 +4,19 @@ from django.core import serializers
 
 from .models import Measurements
 
+import json
 import datetime
 
 
 # Create your views here.
 def index(request):
     if request.method == "POST" and request.content_type == "application/json":
-        data = request.POST
-        print(request.body)
-        for deserialized_object in serializers.deserialize("json", request.body):
-            deserialized_object.save()
-        response = HttpResponse()
-        response.status_code = 200
-        return HttpResponse("")
+        try:
+            data = json.loads(request.body)
+            obj = Measurements.objects.create(**data)
+            return JsonResponse({"status": "ok"}, status=200)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
     else:
         return HttpResponse("Hello, world. You're at the WeatherStation index.")
 
