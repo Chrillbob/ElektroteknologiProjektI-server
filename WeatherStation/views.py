@@ -7,11 +7,6 @@ from .models import Measurements
 import json
 import datetime
 
-class MeasurementsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Measurements
-        fields = ['temp', 'humidity', 'wind_speed', 'wind_dir', 'pressure', 'smoke', 'ambient']
-
 # Create your views here.
 def index(request):
     if request.method == "POST" and request.content_type == "application/json":
