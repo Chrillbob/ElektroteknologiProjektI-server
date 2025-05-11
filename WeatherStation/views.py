@@ -12,8 +12,13 @@ import datetime
 def index(request):
     if request.method == "POST" and request.content_type == "application/json":
         try:
-            data = json.loads(request.body)
-            obj = Measurements.objects.create(**data)
+            body = json.loads(request.body)
+            
+            for entry in body:
+                fields = entry.get("fields", {})
+                # Create new Measurements object - meas_time is handled by auto_now_add
+                Measurements.objects.create(**fields)
+            
             return JsonResponse({"status": "ok"}, status=200)
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)
