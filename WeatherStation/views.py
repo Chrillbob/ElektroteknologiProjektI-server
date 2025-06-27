@@ -16,9 +16,7 @@ def index(request):
             for entry in body:
                 fields = entry.get("fields", {})
                 fields.pop("meas_time", None)
-                # Create new Measurements object - meas_time is handled by auto_now_add
-                print(fields)
-                
+                # Create new Measurements object - meas_time is handled by auto_now_add                
                 Measurements.objects.create(**fields)
             
             return JsonResponse({"status": "ok"}, status=200)
